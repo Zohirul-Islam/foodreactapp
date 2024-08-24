@@ -1,0 +1,26 @@
+.navbar{
+background-color: rgb(219, 211, 227);
+font-weight: 600;
+}
+.menuicon{
+width: 20%;
+}
+.menuicon ul{
+    display: flex;
+    gap: 25px;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.menuicon ul li{
+    list-style-type: none;
+    cursor: pointer;
+}
+.nav-link{
+    font-size: 18px;
+    
+}
+.icon{
+    font-size: 26px;
+}
