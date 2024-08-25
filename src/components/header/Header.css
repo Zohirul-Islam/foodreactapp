@@ -1,0 +1,32 @@
+.header{
+    height: 60vh;
+    margin: 30px auto;
+    background: url('../../assets/header2.jpg');
+    background-size: contain;
+    position: relative;
+}
+.header-contents{
+    position: absolute;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5 rem;
+    left: 20vw;
+    bottom: 30%;
+    align-items: start;
+    
+    color: white;
+}
+.header-contents, .viewbtn{
+   border: none;
+   padding: 8px 20px;
+   border-radius: 7px;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: 600;
+   text-transform: capitalize;
+   transition: 0.3s;
+}
+.viewbtn:hover{
+    background: gold;
+}
