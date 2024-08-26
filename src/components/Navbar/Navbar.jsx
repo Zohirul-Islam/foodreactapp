@@ -5,7 +5,7 @@ import { FaCartPlus } from "react-icons/fa";
 function Navbar() {
     const [menu,setMenu] =useState("home");
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg fixed-top">
     <div className="container">
     <a className="navbar-brand" href="#">ReactFoodApp</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@ function Navbar() {
         <ul>
             <li ><FaSearch  className='icon'/></li>
             <li ><FaCartPlus className='icon' /></li>
-            <li ><button className='btn btn-outline-primary' >Sign In</button></li>
+            <li ><button className='btn btn-primary' >Sign In</button></li>
         </ul>
     </div>
   </div>
