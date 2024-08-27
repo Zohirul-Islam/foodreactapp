@@ -17,6 +17,12 @@ width: 20%;
 .menuicon ul li{
     list-style-type: none;
     cursor: pointer;
+    position: relative;
+}
+.carticon{
+    position: absolute;
+    top: -10px;
+    left:30px;
 }
 .nav-link{
     font-size: 18px;

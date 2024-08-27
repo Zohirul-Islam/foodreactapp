@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { getimgUrl } from '../../utils/foodutils'
 import './Foodcard.css'
 import Rating from '../Rating';
-import CardDetails from '../CardDetails/CardDetails'
+import CardDetails from '../CardDetails/CardDetails';
+import { FoodContext } from '../../context';
 
 function Foodcard({food}) {
+  const {cartValue,setCartValue} = useContext(FoodContext);
   const [showCart,setShowCart] =useState(false);
-  const [selectedfood,setSelectedfood] = useState(null)
+  const [selectedfood,setSelectedfood] = useState(null);
+  
+  
   function handleSelectedfood (food){
     setShowCart(true)
     setSelectedfood(food);
@@ -14,6 +18,15 @@ function Foodcard({food}) {
   function handleClose (){
     setSelectedfood(null)
     setShowCart(false)
+  }
+  function handleAddToCart (e,food){
+    e.preventDefault();
+    e.stopPropagation();
+    const found = cartValue.find(item=>item.id === food.id);
+    if(!found){
+      setCartValue([...cartValue,food])
+    }
+    
   }
   return (
     <>
@@ -29,7 +42,7 @@ function Foodcard({food}) {
             <p>{food.price}</p>
         </div>
         <div className="card-btn">
-            <a className='btn btn bg-primary d-block text-white' href="">Add To Cart</a>
+            <a onClick={(e)=>handleAddToCart(e,food)} className='btn btn bg-primary d-block text-white' href="">Add To Cart</a>
         </div>
         </a>
     </div>

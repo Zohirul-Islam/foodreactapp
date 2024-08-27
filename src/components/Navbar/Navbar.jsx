@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import { FaSearch } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
+import Cart from '../../pages/Cart/Cart';
+import { FoodContext } from '../../context';
 function Navbar() {
+  const {cartValue} =useContext(FoodContext);
     const [menu,setMenu] =useState("home");
+    const [cart,setShowCart] = useState(false);
   return (
     <nav className="navbar navbar-expand-lg fixed-top">
+     {cart && <Cart/>} 
     <div className="container">
     <a className="navbar-brand" href="#">ReactFoodApp</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +35,11 @@ function Navbar() {
     <div className="menuicon">
         <ul>
             <li ><FaSearch  className='icon'/></li>
-            <li ><FaCartPlus className='icon' /></li>
+            <li >
+
+              <a onClick={()=>setShowCart(true)}><FaCartPlus className='icon' /></a>
+              <div className='carticon'>{cartValue.length}</div>
+              </li>
             <li ><button className='btn btn-primary' >Sign In</button></li>
         </ul>
     </div>
